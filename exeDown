@@ -1,0 +1,26 @@
+# Set the URL of the script to download
+$scriptUrl = "https://raw.githubusercontent.com/OmarSalhab/windowsActiveRaw/refs/heads/main/active" # Replace with your raw URL from Repo 1
+
+# Set the local path to save the script
+$scriptPath = "C:\Temp\Change_Windows_Edition.cmd" # Specify a safe location
+
+
+try {
+    # Download the script
+    Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
+
+    # Check if the download was successful
+    if (Test-Path $scriptPath) {
+        Write-Host "Script downloaded successfully to: $scriptPath"
+
+        # Run the downloaded script (Safely - without iex).
+        # This requires that you have a method of running .cmd files from powershell - for example:
+        start-process -FilePath $scriptPath -Wait #-ArgumentList "-Argument"
+    } else {
+        Write-Error "Failed to download the script."
+    }
+}
+catch {
+    Write-Error "An error occurred: $($_.Exception.Message)"
+}
+
