@@ -1,5 +1,5 @@
 # Set the URL of the script to download
-$scriptUrl = "https://raw.githubusercontent.com/OmarSalhab/windowsActiveRaw/refs/heads/main/active.cmd" 
+$scriptUrl = "https://raw.githubusercontent.com/OmarSalhab/windowsActiveRaw/refs/heads/main/active" 
 # Replace with your raw URL from Repo 1
 
 # Set the base path for the temporary directory.  Using a well-known temporary location is recommended for security and cleanup.
